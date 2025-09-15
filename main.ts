@@ -1,26 +1,60 @@
-input.onButtonPressed(Button.B, function () {
-    basic.showString("erik")
+let a = 0
+function hun () {
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . # . . .
+        # # # # .
+        . # . # .
+        `)
+    basic.showLeds(`
+        . . . . .
+        . # . . .
+        # # # # .
+        . # # # .
+        . # . # .
+        `)
+    basic.showLeds(`
+        . # . . .
+        # # # # .
+        . # # # .
+        . # . # .
+        . . . . .
+        `)
+}
+input.onButtonPressed(Button.A, function () {
+    a += 1
 })
+input.onButtonPressed(Button.B, function () {
+    a = 0
+})
+function smil () {
+    basic.showLeds(`
+        . . . . .
+        . # . # .
+        . . . . .
+        # . . . #
+        . # # # .
+        `)
+    basic.showLeds(`
+        . . . . .
+        # # . # #
+        . . . . .
+        . # # # .
+        . . . . .
+        `)
+    basic.showLeds(`
+        . . . . .
+        . # . # .
+        . . . . .
+        . # # # .
+        # . . . #
+        `)
+}
 basic.forever(function () {
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . # . . .
-        # # # # .
-        . # . # .
-        `)
-    basic.showLeds(`
-        . . . . .
-        . # . . .
-        # # # # .
-        . # # # .
-        . # . # .
-        `)
-    basic.showLeds(`
-        . # . . .
-        # # # # .
-        . # # # .
-        . # . # .
-        . . . . .
-        `)
+    if (a == 1) {
+        hun()
+    } else {
+        smil()
+    }
 })
